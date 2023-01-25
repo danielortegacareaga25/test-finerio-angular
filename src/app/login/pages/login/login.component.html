@@ -16,7 +16,10 @@
       <div class="login--container-form--item">
         <span> Email: </span>
         <input type="text" formControlName="email" />
-        <span *ngIf="form.controls['email'].errors"
+        <span
+          *ngIf="
+            form.controls['email'].errors && !form.controls['password'].pristine
+          "
           >El email no es valido.</span
         >
       </div>
@@ -31,7 +34,11 @@
           >La contraseña es requerida</span
         >
       </div>
-      <button class="login--container-form--submit" type="submit">
+      <button
+        [disabled]="isLoading$ | async"
+        class="login--container-form--submit"
+        type="submit"
+      >
         Ingresar
       </button>
     </form>
