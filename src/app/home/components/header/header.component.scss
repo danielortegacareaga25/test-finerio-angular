@@ -1,0 +1,21 @@
+.header{
+
+  &--container{
+    height: 100px;
+    background-color: #8C8C8C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  &--image{
+    height: 40px;
+    width: 40px;
+  }
+
+  &--email{
+    margin-top: 20px;
+  }
+}

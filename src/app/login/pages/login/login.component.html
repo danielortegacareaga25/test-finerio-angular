@@ -1,0 +1,39 @@
+<div class="login--container">
+  <img
+    class="login--container-image"
+    src="/assets/bg-login.jpg"
+    alt=""
+    srcset=""
+  />
+  <div class="login--container-form--container">
+    <form
+      class="login--container-form--form"
+      *ngIf="form"
+      [formGroup]="form"
+      (ngSubmit)="onFormSubmit()"
+    >
+      <p class="login--container-form--title">credenciales</p>
+      <div class="login--container-form--item">
+        <span> Email: </span>
+        <input type="text" formControlName="email" />
+        <span *ngIf="form.controls['email'].errors"
+          >El email no es valido.</span
+        >
+      </div>
+      <div class="login--container-form--item">
+        <span>password:</span>
+        <input type="password" formControlName="password" />
+        <span
+          *ngIf="
+            form.controls['password'].errors &&
+            !form.controls['password'].pristine
+          "
+          >La contraseña es requerida</span
+        >
+      </div>
+      <button class="login--container-form--submit" type="submit">
+        Ingresar
+      </button>
+    </form>
+  </div>
+</div>

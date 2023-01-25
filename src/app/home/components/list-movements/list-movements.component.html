@@ -1,0 +1,25 @@
+<div class="list--container">
+  <h1 class="list--title">Movimientos</h1>
+
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+    class="list--list"
+  >
+    <div
+      *ngFor="let item of getList$ | async; index as i"
+      class="list--list-item"
+    >
+      <p class="list--list-item-decription">
+        {{ item.description }}
+        <span>( {{ item.type === "CHARGE" ? "CARGO" : "DEPOSITO" }}) </span>
+      </p>
+      <p class="list--list-item-data">
+        <span> Monto: {{ item.amount | currency }}</span>
+        <span> Fecha: {{ item.date | date }}</span>
+      </p>
+    </div>
+  </div>
+</div>
